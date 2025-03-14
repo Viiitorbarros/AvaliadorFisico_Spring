@@ -1,10 +1,9 @@
 package com.vitor.avaliador_fisico.models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Usuario {
@@ -12,7 +11,12 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "nome" , length = 50 , nullable = false)
     private String nome;
+
+    @NotNull
+    @Column(name = "nome" , length = 20 , nullable = false)
     private String password;
 
 
@@ -42,4 +46,5 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }
