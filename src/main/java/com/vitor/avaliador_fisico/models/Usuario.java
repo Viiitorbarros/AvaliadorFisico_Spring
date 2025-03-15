@@ -16,7 +16,7 @@ public class Usuario {
     private String nome;
 
     @NotNull
-    @Column(name = "nome" , length = 20 , nullable = false)
+    @Column(name = "password" , length = 20 , nullable = false)
     private String password;
 
 

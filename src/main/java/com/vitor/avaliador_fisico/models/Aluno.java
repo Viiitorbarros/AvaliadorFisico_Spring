@@ -11,6 +11,7 @@ public class Aluno {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "nome" , length = 50 , nullable = false)
@@ -18,18 +19,18 @@ public class Aluno {
     @NotEmpty
     private String nome;
 
-    @Column(name = "Peso" , nullable = false)
+    @Column(name = "peso" , nullable = false)
     @NotEmpty
     @NotNull
     private Double peso;
 
 
-    @Column(name = "Altura" , nullable = false)
+    @Column(name = "altura" , nullable = false)
     @NotNull
     @NotEmpty
     private Double altura;
 
-    @Column(name = "IMC" ,  nullable = false)
+    @Transient// Para nao salvar no banco
     private Double imc ;
 
     //GETS E SETTERS
