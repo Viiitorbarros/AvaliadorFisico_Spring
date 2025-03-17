@@ -41,7 +41,7 @@ public class AlunoController {
         return ResponseEntity.ok(alunos);
     }
 
-    @GetMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Aluno> atualizarAluno(@PathVariable Long id, @RequestBody Aluno alunoAtualizado){
         try {
             Aluno aluno = alunoService.atualizarAluno(id, alunoAtualizado);
@@ -52,7 +52,7 @@ public class AlunoController {
 
     }
 
-    @GetMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarAluno(@PathVariable Long id){
         alunoService.deletarAluno(id);
         return ResponseEntity.noContent().build();
