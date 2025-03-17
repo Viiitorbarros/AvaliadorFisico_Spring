@@ -6,6 +6,7 @@ import com.vitor.avaliador_fisico.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,9 +20,13 @@ public class AlunoService {
     }
 
     // Metodo para buscar um aluno por Id
-    public Aluno buscarAluno(Long id) {
-        return alunoRepository.findById(id).orElseThrow(() -> new RuntimeException("Aluno nao encontrado"));
+    public Optional<Aluno> buscarAlunoPorId(Long id) {
+        return alunoRepository.findById(id);
+    }
 
+    //lista todos os alunos
+    public List<Aluno> listarTodosAlunos() {
+        return alunoRepository.findAll(); // Retorna todos os alunos do banco de dados
     }
 
     //Metodo para atualizar dados do Aluno
